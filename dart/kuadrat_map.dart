@@ -1,49 +1,15 @@
-import 'dart:io';
+// File: kuadrat_map.dart
 
 void main() {
-  print('=== Program Menghitung Kuadrat Angka dalam List ===');
+  // 1. Mendefinisikan sebuah list berisi angka-angka
+  List<int> angka = [1, 2, 3, 4, 5];
 
-  List<int> daftarAngka = []; 
+  // 2. Menggunakan fungsi map untuk menghitung kuadrat dari setiap angka
+  // Fungsi map menerapkan ekspresi (n) => n * n pada setiap elemen list
+  // Hasil dari map adalah Iterable, sehingga perlu dikonversi menjadi List dengan toList()
+  List<int> kuadrat = angka.map((n) => n * n).toList();
 
-  while (true) {
-    print('Masukkan angka (pisahkan dengan spasi, contoh: 1 2 3 4 5):');
-
-    String? input = stdin.readLineSync(); 
-    List<String> angkaStr = input?.split(' ') ?? []; 
-    List<int> angkaSementara = [];
-
-    bool inputValid = true;
-
-    for (String angka in angkaStr) {
-      int? nilai = int.tryParse(angka); 
-      if (nilai != null) {
-        angkaSementara.add(nilai);
-      } else {
-        inputValid = false;
-        break;
-      }
-    }
-
-    if (inputValid && angkaSementara.isNotEmpty) {
-      print('Anda memasukkan angka: ${angkaSementara.join(', ')}. Apakah sudah benar? (yes/no)');
-      String? konfirmasi = stdin.readLineSync()?.toLowerCase();
-
-      if (konfirmasi == 'yes') {
-        daftarAngka = angkaSementara; 
-        break;
-      } else if (konfirmasi == 'no') {
-        print('Silakan masukkan angka yang benar.');
-      } else {
-        print('Jawaban tidak valid, silakan ketik "yes" atau "no".');
-      }
-    } else {
-      print('Input tidak valid, silakan masukkan angka yang benar.');
-    }
-  }
-
-  // Menggunakan map() untuk menghitung kuadrat setiap angka dalam daftar
-  List<int> hasilKuadrat = daftarAngka.map((angka) => angka * angka).toList();
-
-  print('Daftar angka asli: $daftarAngka');
-  print('Hasil kuadrat: $hasilKuadrat');
+  // 3. Menampilkan hasil ke konsol
+  print("Angka asli: $angka");
+  print("Kuadrat: $kuadrat");
 }
