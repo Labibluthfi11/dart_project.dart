@@ -1,40 +1,28 @@
-class Person {
-  String _name;
-  int _age;
+class Car {
+  double _speed;
 
-  Person(this._name, this._age);
+  Car([this._speed = 0]);
 
-  // Getter
-  String get name => _name;
-  int get age => _age;
+  double get speed => _speed;
 
-  // Setter
-  set name(String newName) {
-    _name = newName;
-  }
-
-  set age(int newAge) {
-    if (newAge > 0) {
-      _age = newAge;
+  set speed(double value) {
+    if (value < 0) {
+      print("Speed tidak bisa negatif. Mengatur ke 0.");
+      _speed = 0;
     } else {
-      print("Age must be positive.");
+      _speed = value;
     }
-  }
-
-  void introduce() {
-    print("Hi, my name is $_name and I am $_age years old.");
   }
 }
 
+// Contoh penggunaan
 void main() {
-  Person person = Person("John Doe", 25);
-  person.introduce();
-  
-  // Menggunakan setter
-  person.name = "Jane Doe";
-  person.age = 30;
+  Car car = Car();
+  print("Kecepatan awal: \${car.speed}");
 
-  // Menggunakan getter
-  print("Updated Name: \${person.name}");
-  print("Updated Age: \${person.age}");
+  car.speed = 80; // Mengatur kecepatan
+  print("Kecepatan setelah diatur: \${car.speed}");
+
+  car.speed = -20; // Mencoba mengatur kecepatan negatif
+  print("Kecepatan setelah mencoba nilai negatif: \${car.speed}");
 }
