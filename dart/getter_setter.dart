@@ -18,11 +18,11 @@ class Car {
 // Contoh penggunaan
 void main() {
   Car car = Car();
-  print("Kecepatan awal: \${car.speed}");
+  print("Kecepatan awal: ${car.speed}");
 
   car.speed = 80; // Mengatur kecepatan
-  print("Kecepatan setelah diatur: \${car.speed}");
+  print("Kecepatan setelah diatur: ${car.speed}");
 
   car.speed = -20; // Mencoba mengatur kecepatan negatif
-  print("Kecepatan setelah mencoba nilai negatif: \${car.speed}");
+  print("Kecepatan setelah mencoba nilai negatif: ${car.speed}");
 }
